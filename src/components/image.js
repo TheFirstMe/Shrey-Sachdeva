@@ -29,18 +29,14 @@ const Image = props => (
       if (!image) {
         return null
       }
-
       return (
-          <InView>
-        {({ inView, ref, entry }) => (
-          <div ref={ref}>
-            {inView ? <Image alt="image_1" filename="image_2.jpg" /> : null}
-            {inView ? <Image alt="image_1" filename="image_1.jpg" /> : null}
-            {inView ? <Image alt="image_1" filename="image_3.jpg" /> : null}
-            {inView ? <Image alt="image_1" filename="image_4.jpg" /> : null}
-          </div>       
-        )}
-      </InView>
+        <InView>
+          {({ inView, ref, entry }) => (
+            <div ref={ref}>
+              {inView ? <Img alt={props.alt} fluid={image.node.childImageSharp.fluid} /> : null}
+            </div>
+          )}
+        </InView>
       )
     }}
   />
